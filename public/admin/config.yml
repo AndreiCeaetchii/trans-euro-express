@@ -1,0 +1,99 @@
+backend:
+  name: github
+  repo: your-username/trans-euro-express
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "testimonials"
+    label: "Testimoniale"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nume", name: "name", widget: "string" }
+      - { label: "Ruta", name: "route_description", widget: "string" }
+      - { label: "Inițiale Avatar", name: "avatar_initials", widget: "string" }
+      - { label: "Culoare Avatar (CSS gradient)", name: "avatar_color", widget: "string" }
+      - { label: "Text Recenzie", name: "review_text", widget: "text" }
+      - { label: "Stele (1-5)", name: "stars", widget: "number", min: 1, max: 5 }
+      - { label: "Tip (Persoană fizică / Companie)", name: "type", widget: "string" }
+      - { label: "Ordine", name: "order", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "faq"
+    label: "FAQ"
+    folder: "src/content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Întrebare", name: "question", widget: "string" }
+      - { label: "Răspuns", name: "answer", widget: "text" }
+      - { label: "Ordine", name: "order", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "services"
+    label: "Servicii"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titlu", name: "title", widget: "string" }
+      - { label: "Descriere", name: "description", widget: "text" }
+      - { label: "Icon (emoji)", name: "icon", widget: "string" }
+      - { label: "Culoare", name: "color", widget: "string", default: "#F04E1A" }
+      - { label: "Ordine", name: "order", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+  - name: "settings"
+    label: "Setări"
+    files:
+      - label: "General"
+        name: "general"
+        file: "src/content/settings/general.md"
+        fields:
+          - { label: "Denumire Companie", name: "company_name", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "Email", name: "email", widget: "string", required: false }
+          - { label: "Adresă", name: "address", widget: "string", required: false }
+
+      - label: "Hero"
+        name: "hero"
+        file: "src/content/settings/hero.md"
+        fields:
+          - { label: "Badge Text", name: "badge", widget: "string" }
+          - { label: "Titlu Linia 1", name: "title_line1", widget: "string" }
+          - { label: "Titlu Linia 2", name: "title_line2", widget: "string" }
+          - { label: "Titlu Linia 3", name: "title_line3", widget: "string" }
+          - { label: "Subtitlu", name: "subtitle", widget: "text" }
+
+      - label: "Rute"
+        name: "routes"
+        file: "src/content/settings/routes.md"
+        fields:
+          - { label: "Titlu Secțiune", name: "section_title", widget: "string" }
+          - { label: "Descriere", name: "section_description", widget: "text" }
+
+      - label: "Orașe Moldova"
+        name: "cities"
+        file: "src/content/settings/cities.md"
+        fields:
+          - label: "Orașe"
+            name: "cities"
+            widget: "list"
+            field: { label: "Oraș", name: "city", widget: "string" }
+
+      - label: "Galerie"
+        name: "gallery"
+        file: "src/content/settings/gallery.md"
+        fields:
+          - label: "Imagini"
+            name: "images"
+            widget: "list"
+            fields:
+              - { label: "Imagine", name: "src", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Lățime dublă", name: "wide", widget: "boolean", default: false }

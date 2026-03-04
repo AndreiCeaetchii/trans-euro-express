@@ -325,7 +325,7 @@ export const translations: Record<string, Record<string, string>> = {
     'nav.ariaNav': 'Основная навигация',
 
     // Hero
-    'hero.badge': 'Профессиональная перевозка авто',
+    'hero.badge': 'Перевозка авто',
     'hero.titleLine1': 'Перевозка Авто',
     'hero.titleLine2Prefix': 'на ',
     'hero.titleLine2Accent': 'Платформе',

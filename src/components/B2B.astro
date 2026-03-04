@@ -153,7 +153,12 @@
   }
 
   @media (max-width: 768px) {
-    .b2b__grid { grid-template-columns: 1fr; }
+    .b2b__grid { grid-template-columns: 1fr; gap: 32px; }
     .b2b { padding: 64px 0; }
+  }
+
+  @media (max-width: 480px) {
+    .b2b__docs li { padding: 10px 12px; font-size: 0.85rem; }
+    .b2b__item { gap: 12px; }
   }
 </style>

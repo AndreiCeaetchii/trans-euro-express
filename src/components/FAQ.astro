@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+
+const faqs = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+---
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq__header reveal">
+      <span class="section-badge">Întrebări Frecvente</span>
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-subtitle">Răspunsuri la cele mai frecvente întrebări</p>
+    </div>
+
+    <div class="faq__list">
+      {faqs.map((item, i) => (
+        <div class="faq__item reveal" style={`transition-delay: ${i * 0.05}s`}>
+          <button
+            class="faq__question"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+          >
+            <span>{item.data.question}</span>
+            <svg class="faq__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq__answer" id={`faq-answer-${i}`} role="region">
+            <p>{item.data.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- FAQ Schema.org -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(item => ({
+      "@type": "Question",
+      "name": item.data.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.data.answer
+      }
+    }))
+  })} />
+</section>
+
+<style>
+  .faq {
+    background: var(--gray-bg);
+    padding: 96px 0;
+  }
+
+  .faq__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .faq__header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq__item {
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .faq__item.active {
+    border-color: var(--orange);
+  }
+
+  .faq__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark);
+    text-align: left;
+    gap: 16px;
+  }
+
+  .faq__chevron {
+    flex-shrink: 0;
+    color: var(--gray-text);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .faq__item.active .faq__chevron {
+    transform: rotate(180deg);
+    color: var(--orange);
+  }
+
+  .faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq__answer p {
+    padding: 0 24px 20px;
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .faq { padding: 64px 0; }
+  }
+</style>
+
+<script>
+  const faqItems = document.querySelectorAll('.faq__item');
+
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq__question')!;
+    const answer = item.querySelector('.faq__answer') as HTMLElement;
+
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      // Close all others
+      faqItems.forEach(other => {
+        other.classList.remove('active');
+        const otherBtn = other.querySelector('.faq__question')!;
+        const otherAnswer = other.querySelector('.faq__answer') as HTMLElement;
+        otherBtn.setAttribute('aria-expanded', 'false');
+        otherAnswer.style.maxHeight = '0';
+      });
+
+      // Toggle current
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+</script>

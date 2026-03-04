@@ -1,0 +1,107 @@
+---
+---
+<section class="ports">
+  <div class="container">
+    <div class="ports__header reveal">
+      <span class="section-badge">Servicii Portuare</span>
+      <h2 class="section-title section-title--light">Transport din Porturi</h2>
+      <p class="section-subtitle section-subtitle--light">Ridicare vehicule din porturile Constanța și Odessa</p>
+    </div>
+
+    <div class="ports__grid">
+      <div class="ports__card reveal">
+        <div class="ports__icon">🇷🇴</div>
+        <h3 class="ports__title">Portul Constanța</h3>
+        <p class="ports__desc">Transport vehicule importate prin portul Constanța către Moldova sau orice destinație din România.</p>
+        <ul class="ports__list">
+          <li>🚢 Ridicare din terminal portuar</li>
+          <li>📋 Asistență formalități vamale</li>
+          <li>🛡️ Asigurare completă transport</li>
+          <li>🚛 Livrare door-to-door</li>
+        </ul>
+      </div>
+      <div class="ports__card reveal">
+        <div class="ports__icon">🇺🇦</div>
+        <h3 class="ports__title">Portul Odessa</h3>
+        <p class="ports__desc">Transport auto din portul Odessa către Moldova cu asistență completă la frontieră.</p>
+        <ul class="ports__list">
+          <li>🚢 Ridicare din port Odessa</li>
+          <li>📋 Asistență vamă UA/MD</li>
+          <li>🛡️ Asigurare internațională</li>
+          <li>🚛 Livrare în toată Moldova</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ports {
+    background: var(--black);
+    padding: 96px 0;
+  }
+
+  .ports__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .ports__header .section-subtitle--light {
+    margin: 0 auto;
+  }
+
+  .ports__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .ports__card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 40px 32px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .ports__card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+  }
+
+  .ports__icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .ports__title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .ports__desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .ports__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ports__list li {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .ports__grid { grid-template-columns: 1fr; }
+    .ports { padding: 64px 0; }
+  }
+</style>

@@ -1,0 +1,114 @@
+---
+const steps = [
+  { num: '01', title: 'Contactează-ne', desc: 'Sună sau scrie pe WhatsApp cu detalii despre mașina și ruta dorită.', icon: '📞' },
+  { num: '02', title: 'Programare', desc: 'Stabilim data, ora și locul de ridicare convenabil pentru tine.', icon: '📅' },
+  { num: '03', title: 'Ridicare', desc: 'Echipa noastră ridică mașina cu platformă profesională.', icon: '🚛' },
+  { num: '04', title: 'Livrare', desc: 'Livrăm mașina la destinație în siguranță și la timp.', icon: '✅' },
+];
+---
+<section class="how" id="cum-functioneaza">
+  <div class="container">
+    <div class="how__header reveal">
+      <span class="section-badge">Proces Simplu</span>
+      <h2 class="section-title">Cum Funcționează</h2>
+      <p class="section-subtitle">4 pași simpli pentru transportul mașinii tale</p>
+    </div>
+    <div class="how__grid">
+      {steps.map((step, i) => (
+        <div class="how__step reveal" style={`transition-delay: ${i * 0.1}s`}>
+          <span class="how__icon">{step.icon}</span>
+          <span class="how__num">{step.num}</span>
+          <h3 class="how__step-title">{step.title}</h3>
+          <p class="how__step-desc">{step.desc}</p>
+          {i < 3 && <div class="how__connector" />}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how {
+    background: var(--white);
+    padding: 96px 0;
+  }
+
+  .how__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .how__header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .how__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+
+  .how__step {
+    text-align: center;
+    position: relative;
+    padding: 32px 16px;
+  }
+
+  .how__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .how__num {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--orange);
+    background: rgba(240, 78, 26, 0.1);
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+  }
+
+  .how__step-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .how__step-desc {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    line-height: 1.6;
+  }
+
+  .how__connector {
+    display: none;
+  }
+
+  @media (min-width: 901px) {
+    .how__connector {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(to right, var(--orange), transparent);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .how__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .how__grid { grid-template-columns: 1fr; }
+    .how { padding: 64px 0; }
+  }
+</style>

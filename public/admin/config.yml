@@ -1,10 +1,10 @@
 backend:
   name: github
-  repo: your-username/trans-euro-express
+  repo: AndreiCeaetchii/trans-euro-express
   branch: main
 
 media_folder: "public/images"
-public_folder: "/images"
+public_folder: "/trans-euro-express/images"
 
 collections:
   - name: "testimonials"

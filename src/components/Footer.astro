@@ -1,0 +1,142 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <span class="footer__logo">🚛 TRANS EURO EXPRESS</span>
+      <p class="footer__tagline">Transport auto profesional pe platformă între Moldova, România și Odessa. Siguranță, rapiditate și prețuri corecte.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__col-title">Navigare</h4>
+      <nav class="footer__nav" aria-label="Navigare footer">
+        <a href="#cum-functioneaza">Cum funcționează</a>
+        <a href="#rute">Rute</a>
+        <a href="#servicii">Servicii</a>
+        <a href="#testimoniale">Testimoniale</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__col-title">Contact</h4>
+      <div class="footer__contact">
+        <a href="tel:+37368860200">📞 +373 68 860 200</a>
+        <a href="https://wa.me/37368860200" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <span>📍 Republica Moldova</span>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__col-title">Program</h4>
+      <div class="footer__schedule">
+        <span>Luni - Vineri: 08:00 - 20:00</span>
+        <span>Sâmbătă: 09:00 - 18:00</span>
+        <span>Duminică: La cerere</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <span>&copy; {year} Trans Euro Express SRL. Toate drepturile rezervate.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--black);
+    padding: 64px 0 0;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer__logo {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--white);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .footer__tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+  }
+
+  .footer__col-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer__nav a {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.2s ease;
+  }
+
+  .footer__nav a:hover {
+    color: var(--orange);
+  }
+
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer__contact a,
+  .footer__contact span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer__contact a:hover {
+    color: var(--orange);
+  }
+
+  .footer__schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer__bottom {
+    padding: 20px 0;
+  }
+
+  .footer__bottom-inner {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  @media (max-width: 900px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 480px) {
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+<section class="services" id="servicii">
+  <div class="container">
+    <div class="services__header reveal">
+      <span class="section-badge">Servicii</span>
+      <h2 class="section-title">Serviciile Noastre</h2>
+      <p class="section-subtitle">Soluții complete de transport auto pentru orice nevoie</p>
+    </div>
+
+    <div class="services__grid">
+      {services.map((service, i) => (
+        <div class="services__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+          <div class="services__card-accent" style={`background: ${service.data.color}`}></div>
+          <span class="services__icon">{service.data.icon}</span>
+          <h3 class="services__card-title">{service.data.title}</h3>
+          <p class="services__card-desc">{service.data.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: var(--gray-bg);
+    padding: 96px 0;
+  }
+
+  .services__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .services__header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .services__card {
+    position: relative;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 24px;
+    border: 1px solid var(--gray-border);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .services__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .services__card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+  }
+
+  .services__icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .services__card-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .services__card-desc {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+    .services { padding: 64px 0; }
+  }
+
+  @media (max-width: 480px) {
+    .services__grid { grid-template-columns: 1fr; }
+  }
+</style>

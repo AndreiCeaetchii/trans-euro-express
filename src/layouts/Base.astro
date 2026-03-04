@@ -42,6 +42,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -83,6 +86,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </head>
 <body>
   <slot />
+
+  <!-- Swiper JS -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Swiper !== 'undefined' && document.querySelector('.testimonials__slider')) {
+        new Swiper('.testimonials__slider', {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          autoplay: { delay: 4500, disableOnInteraction: false },
+          pagination: { el: '.swiper-pagination', clickable: true },
+          navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+          breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          },
+        });
+      }
+    });
+  </script>
 
   <script>
     // IntersectionObserver for .reveal elements

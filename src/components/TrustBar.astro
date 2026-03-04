@@ -1,0 +1,64 @@
+---
+---
+<section class="trustbar">
+  <div class="container trustbar__grid">
+    <div class="trustbar__item reveal">
+      <span class="trustbar__number">2500+</span>
+      <span class="trustbar__label">Mașini Transportate</span>
+    </div>
+    <div class="trustbar__item reveal">
+      <span class="trustbar__number">8+</span>
+      <span class="trustbar__label">Ani Experiență</span>
+    </div>
+    <div class="trustbar__item reveal">
+      <span class="trustbar__number">100%</span>
+      <span class="trustbar__label">Asigurare Completă</span>
+    </div>
+    <div class="trustbar__item reveal">
+      <span class="trustbar__number">4.9★</span>
+      <span class="trustbar__label">Rating Clienți</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trustbar {
+    background: var(--white);
+    padding: 48px 0;
+    border-bottom: 1px solid var(--gray-border);
+  }
+
+  .trustbar__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+
+  .trustbar__item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .trustbar__number {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 900;
+    color: var(--orange);
+  }
+
+  .trustbar__label {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .trustbar__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .trustbar__grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>

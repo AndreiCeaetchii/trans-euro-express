@@ -1,22 +1,29 @@
 ---
+import { t, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
 ---
 <section class="trustbar">
   <div class="container trustbar__grid">
     <div class="trustbar__item reveal">
       <span class="trustbar__number">2500+</span>
-      <span class="trustbar__label">Mașini Transportate</span>
+      <span class="trustbar__label">{t(locale, 'trust.cars')}</span>
     </div>
     <div class="trustbar__item reveal">
       <span class="trustbar__number">8+</span>
-      <span class="trustbar__label">Ani Experiență</span>
+      <span class="trustbar__label">{t(locale, 'trust.years')}</span>
     </div>
     <div class="trustbar__item reveal">
       <span class="trustbar__number">3</span>
-      <span class="trustbar__label">Țări Deservite</span>
+      <span class="trustbar__label">{t(locale, 'trust.countries')}</span>
     </div>
     <div class="trustbar__item reveal">
       <span class="trustbar__number">4.9★</span>
-      <span class="trustbar__label">Rating Clienți</span>
+      <span class="trustbar__label">{t(locale, 'trust.rating')}</span>
     </div>
   </div>
 </section>

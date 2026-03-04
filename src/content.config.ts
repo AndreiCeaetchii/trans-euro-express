@@ -9,6 +9,7 @@ const services = defineCollection({
     icon: z.string(),
     color: z.string().default('#F04E1A'),
     order: z.number(),
+    locale: z.string().default('ro'),
   }),
 });
 
@@ -23,6 +24,7 @@ const testimonials = defineCollection({
     stars: z.number().min(1).max(5),
     type: z.string(),
     order: z.number(),
+    locale: z.string().default('ro'),
   }),
 });
 
@@ -32,6 +34,7 @@ const faq = defineCollection({
     question: z.string(),
     answer: z.string(),
     order: z.number(),
+    locale: z.string().default('ro'),
   }),
 });
 

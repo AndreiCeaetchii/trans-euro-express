@@ -4,4 +4,5 @@ description: "Te ajutăm cu toate formalitățile vamale la frontieră. Document
 icon: "📋"
 color: "#DC2626"
 order: 5
+locale: "ro"
 ---

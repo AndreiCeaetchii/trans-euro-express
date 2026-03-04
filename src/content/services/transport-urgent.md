@@ -4,4 +4,5 @@ description: "Serviciu de transport rapid, cu plecare în aceeași zi sau în 24
 icon: "⚡"
 color: "#dc2626"
 order: 6
+locale: "ro"
 ---

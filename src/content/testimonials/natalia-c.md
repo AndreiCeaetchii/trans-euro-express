@@ -7,4 +7,5 @@ review_text: "Am cumpărat o mașină din Odessa și aveam nevoie de transport u
 stars: 5
 type: "Persoană fizică"
 order: 3
+locale: "ro"
 ---

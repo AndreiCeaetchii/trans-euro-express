@@ -1,14 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
+import { t, type Locale } from '../i18n/utils';
 
-const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
+
+const allTestimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
+const localeTestimonials = allTestimonials.filter(item => (item.data.locale ?? 'ro') === locale);
+const testimonials = localeTestimonials.length > 0 ? localeTestimonials : allTestimonials.filter(item => (item.data.locale ?? 'ro') === 'ro');
 ---
 <section class="testimonials" id="testimoniale">
   <div class="container">
     <div class="testimonials__header reveal">
-      <span class="section-badge">Testimoniale</span>
-      <h2 class="section-title">Ce Spun Clienții</h2>
-      <p class="section-subtitle">Recenzii reale de la clienții noștri mulțumiți</p>
+      <span class="section-badge">{t(locale, 'testimonials.badge')}</span>
+      <h2 class="section-title">{t(locale, 'testimonials.title')}</h2>
+      <p class="section-subtitle">{t(locale, 'testimonials.subtitle')}</p>
     </div>
 
     <div class="swiper testimonials__slider reveal">

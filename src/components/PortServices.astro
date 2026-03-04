@@ -1,11 +1,18 @@
 ---
+import { t, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
 ---
 <section class="ports">
   <div class="container">
     <div class="ports__header reveal">
-      <span class="section-badge">Servicii Portuare</span>
-      <h2 class="section-title section-title--light">Transport din Porturi</h2>
-      <p class="section-subtitle section-subtitle--light">Ridicare vehicule din porturile Constanța și Odessa</p>
+      <span class="section-badge">{t(locale, 'ports.badge')}</span>
+      <h2 class="section-title section-title--light">{t(locale, 'ports.title')}</h2>
+      <p class="section-subtitle section-subtitle--light">{t(locale, 'ports.subtitle')}</p>
     </div>
 
     <div class="ports__grid">
@@ -16,26 +23,14 @@
             <span class="ports__flag-stripe ports__flag-stripe--yellow"></span>
             <span class="ports__flag-stripe ports__flag-stripe--red"></span>
           </div>
-          <h3 class="ports__title">Portul Constanța</h3>
-          <p class="ports__desc">Transport vehicule importate prin portul Constanța către Moldova sau orice destinație din România.</p>
+          <h3 class="ports__title">{t(locale, 'ports.constanta.title')}</h3>
+          <p class="ports__desc">{t(locale, 'ports.constanta.desc')}</p>
         </div>
         <ul class="ports__list">
-          <li>
-            <span class="ports__list-icon">🚢</span>
-            <span>Ridicare din terminal portuar</span>
-          </li>
-          <li>
-            <span class="ports__list-icon">📋</span>
-            <span>Asistență formalități vamale</span>
-          </li>
-          <li>
-            <span class="ports__list-icon">🛡️</span>
-            <span>Asigurare completă transport</span>
-          </li>
-          <li>
-            <span class="ports__list-icon">🚛</span>
-            <span>Livrare door-to-door</span>
-          </li>
+          <li><span class="ports__list-icon">🚢</span><span>{t(locale, 'ports.constanta.feat1')}</span></li>
+          <li><span class="ports__list-icon">📋</span><span>{t(locale, 'ports.constanta.feat2')}</span></li>
+          <li><span class="ports__list-icon">🛡️</span><span>{t(locale, 'ports.constanta.feat3')}</span></li>
+          <li><span class="ports__list-icon">🚛</span><span>{t(locale, 'ports.constanta.feat4')}</span></li>
         </ul>
       </div>
       <div class="ports__card ports__card--ua reveal">
@@ -44,26 +39,14 @@
             <span class="ports__flag-stripe ports__flag-stripe--ua-blue"></span>
             <span class="ports__flag-stripe ports__flag-stripe--ua-yellow"></span>
           </div>
-          <h3 class="ports__title">Portul Odessa</h3>
-          <p class="ports__desc">Transport auto din portul Odessa către Moldova cu asistență completă la frontieră.</p>
+          <h3 class="ports__title">{t(locale, 'ports.odessa.title')}</h3>
+          <p class="ports__desc">{t(locale, 'ports.odessa.desc')}</p>
         </div>
         <ul class="ports__list">
-          <li>
-            <span class="ports__list-icon">🚢</span>
-            <span>Ridicare din port Odessa</span>
-          </li>
-          <li>
-            <span class="ports__list-icon">📋</span>
-            <span>Asistență vamă UA/MD</span>
-          </li>
-          <li>
-            <span class="ports__list-icon">🛡️</span>
-            <span>Asigurare internațională</span>
-          </li>
-          <li>
-            <span class="ports__list-icon">🚛</span>
-            <span>Livrare în toată Moldova</span>
-          </li>
+          <li><span class="ports__list-icon">🚢</span><span>{t(locale, 'ports.odessa.feat1')}</span></li>
+          <li><span class="ports__list-icon">📋</span><span>{t(locale, 'ports.odessa.feat2')}</span></li>
+          <li><span class="ports__list-icon">🛡️</span><span>{t(locale, 'ports.odessa.feat3')}</span></li>
+          <li><span class="ports__list-icon">🚛</span><span>{t(locale, 'ports.odessa.feat4')}</span></li>
         </ul>
       </div>
     </div>
@@ -92,6 +75,7 @@
   }
 
   .ports__card {
+    position: relative;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
@@ -121,14 +105,7 @@
     left: 0;
   }
 
-  .ports__card {
-    position: relative;
-  }
-
-  .ports__flag-stripe {
-    flex: 1;
-  }
-
+  .ports__flag-stripe { flex: 1; }
   .ports__flag-stripe--blue { background: #002B7F; }
   .ports__flag-stripe--yellow { background: #FCD116; }
   .ports__flag-stripe--red { background: #CE1126; }

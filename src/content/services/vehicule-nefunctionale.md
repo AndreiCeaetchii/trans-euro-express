@@ -4,4 +4,5 @@ description: "Transportăm și mașini care nu pornesc sau nu se deplasează sin
 icon: "🔧"
 color: "#F59E0B"
 order: 6
+locale: "ro"
 ---

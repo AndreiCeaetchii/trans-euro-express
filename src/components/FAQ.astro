@@ -1,14 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
+import { t, type Locale } from '../i18n/utils';
 
-const faqs = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
+
+const allFaqs = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+const localeFaqs = allFaqs.filter(item => (item.data.locale ?? 'ro') === locale);
+const faqs = localeFaqs.length > 0 ? localeFaqs : allFaqs.filter(item => (item.data.locale ?? 'ro') === 'ro');
 ---
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq__header reveal">
-      <span class="section-badge">Întrebări Frecvente</span>
-      <h2 class="section-title">FAQ</h2>
-      <p class="section-subtitle">Răspunsuri la cele mai frecvente întrebări</p>
+      <span class="section-badge">{t(locale, 'faq.badge')}</span>
+      <h2 class="section-title">{t(locale, 'faq.title')}</h2>
+      <p class="section-subtitle">{t(locale, 'faq.subtitle')}</p>
     </div>
 
     <div class="faq__list">

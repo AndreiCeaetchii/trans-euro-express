@@ -7,4 +7,5 @@ review_text: "Am avut o mașină defectă care trebuia transportată de urgenț�
 stars: 5
 type: "Persoană fizică"
 order: 4
+locale: "ro"
 ---

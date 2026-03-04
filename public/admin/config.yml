@@ -21,6 +21,7 @@ collections:
       - { label: "Stele (1-5)", name: "stars", widget: "number", min: 1, max: 5 }
       - { label: "Tip (Persoană fizică / Companie)", name: "type", widget: "string" }
       - { label: "Ordine", name: "order", widget: "number" }
+      - { label: "Limba", name: "locale", widget: "select", options: ["ro", "en", "ru"], default: "ro" }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
   - name: "faq"
@@ -32,6 +33,7 @@ collections:
       - { label: "Întrebare", name: "question", widget: "string" }
       - { label: "Răspuns", name: "answer", widget: "text" }
       - { label: "Ordine", name: "order", widget: "number" }
+      - { label: "Limba", name: "locale", widget: "select", options: ["ro", "en", "ru"], default: "ro" }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
   - name: "services"
@@ -45,6 +47,7 @@ collections:
       - { label: "Icon (emoji)", name: "icon", widget: "string" }
       - { label: "Culoare", name: "color", widget: "string", default: "#F04E1A" }
       - { label: "Ordine", name: "order", widget: "number" }
+      - { label: "Limba", name: "locale", widget: "select", options: ["ro", "en", "ru"], default: "ro" }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
   - name: "settings"

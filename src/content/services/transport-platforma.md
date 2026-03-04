@@ -4,4 +4,5 @@ description: "Transportăm mașina ta pe platformă profesională, fără uzură
 icon: "🚛"
 color: "#F04E1A"
 order: 1
+locale: "ro"
 ---

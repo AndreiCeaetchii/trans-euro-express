@@ -1,4 +1,11 @@
 ---
+import { t, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const images = [
   { src: `${base}/images/photo1.jpg`, alt: 'Transport auto pe platformă' },
@@ -14,9 +21,9 @@ const images = [
 <section class="gallery" id="galerie">
   <div class="container">
     <div class="gallery__header reveal">
-      <span class="section-badge">Galerie</span>
-      <h2 class="section-title">Galerie Foto</h2>
-      <p class="section-subtitle">Imagini din activitatea noastră zilnică</p>
+      <span class="section-badge">{t(locale, 'gallery.badge')}</span>
+      <h2 class="section-title">{t(locale, 'gallery.title')}</h2>
+      <p class="section-subtitle">{t(locale, 'gallery.subtitle')}</p>
     </div>
 
     <div class="swiper gallery__slider reveal">

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trans-euro-express.md/sitemap-index.xml

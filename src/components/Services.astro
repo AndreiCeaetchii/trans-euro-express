@@ -1,18 +1,27 @@
 ---
 import { getCollection } from 'astro:content';
+import { t, type Locale } from '../i18n/utils';
 
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
+
+const allServices = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const services = allServices.filter(s => (s.data.locale ?? 'ro') === locale);
+const fallbackServices = services.length > 0 ? services : allServices.filter(s => (s.data.locale ?? 'ro') === 'ro');
 ---
 <section class="services" id="servicii">
   <div class="container">
     <div class="services__header reveal">
-      <span class="section-badge">Servicii</span>
-      <h2 class="section-title">Serviciile Noastre</h2>
-      <p class="section-subtitle">Soluții complete de transport auto pentru orice nevoie</p>
+      <span class="section-badge">{t(locale, 'services.badge')}</span>
+      <h2 class="section-title">{t(locale, 'services.title')}</h2>
+      <p class="section-subtitle">{t(locale, 'services.subtitle')}</p>
     </div>
 
     <div class="services__grid">
-      {services.map((service, i) => (
+      {fallbackServices.map((service, i) => (
         <div class="services__card reveal" style={`transition-delay: ${i * 0.08}s`}>
           <div class="services__card-accent" style={`background: ${service.data.color}`}></div>
           <div class="services__card-header">

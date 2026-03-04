@@ -7,4 +7,5 @@ review_text: "Colaborăm cu Trans Euro Express de peste 3 ani. Transportă regul
 stars: 5
 type: "Companie"
 order: 2
+locale: "ro"
 ---

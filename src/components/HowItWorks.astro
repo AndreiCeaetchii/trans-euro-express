@@ -1,17 +1,25 @@
 ---
+import { t, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
+
 const steps = [
-  { num: '01', title: 'Contactează-ne', desc: 'Sună sau scrie pe WhatsApp cu detalii despre mașina și ruta dorită.', icon: '📞' },
-  { num: '02', title: 'Programare', desc: 'Stabilim data, ora și locul de ridicare convenabil pentru tine.', icon: '📅' },
-  { num: '03', title: 'Ridicare', desc: 'Echipa noastră ridică mașina cu platformă profesională.', icon: '🚛' },
-  { num: '04', title: 'Livrare', desc: 'Livrăm mașina la destinație în siguranță și la timp.', icon: '✅' },
+  { num: '01', title: t(locale, 'how.step1.title'), desc: t(locale, 'how.step1.desc'), icon: '📞' },
+  { num: '02', title: t(locale, 'how.step2.title'), desc: t(locale, 'how.step2.desc'), icon: '📅' },
+  { num: '03', title: t(locale, 'how.step3.title'), desc: t(locale, 'how.step3.desc'), icon: '🚛' },
+  { num: '04', title: t(locale, 'how.step4.title'), desc: t(locale, 'how.step4.desc'), icon: '✅' },
 ];
 ---
 <section class="how" id="cum-functioneaza">
   <div class="container">
     <div class="how__header reveal">
-      <span class="section-badge">Proces Simplu</span>
-      <h2 class="section-title">Cum Funcționează</h2>
-      <p class="section-subtitle">4 pași simpli pentru transportul mașinii tale</p>
+      <span class="section-badge">{t(locale, 'how.badge')}</span>
+      <h2 class="section-title">{t(locale, 'how.title')}</h2>
+      <p class="section-subtitle">{t(locale, 'how.subtitle')}</p>
     </div>
     <div class="how__grid">
       {steps.map((step, i) => (

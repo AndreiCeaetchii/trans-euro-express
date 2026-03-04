@@ -4,4 +4,5 @@ description: "Serviciu door-to-door complet. Ridicăm mașina de la adresa ta ș
 icon: "📍"
 color: "#7C3AED"
 order: 4
+locale: "ro"
 ---

@@ -7,4 +7,5 @@ review_text: "Importăm mașini prin portul Constanța și Trans Euro Express es
 stars: 5
 type: "Companie"
 order: 5
+locale: "ro"
 ---

@@ -1,59 +1,65 @@
 ---
+import { t, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
 ---
 <section class="b2b" id="b2b">
   <div class="container">
     <div class="b2b__header reveal">
-      <span class="section-badge">Pentru Companii</span>
-      <h2 class="section-title">Servicii B2B</h2>
-      <p class="section-subtitle">Soluții profesionale de transport auto pentru dealeri și companii</p>
+      <span class="section-badge">{t(locale, 'b2b.badge')}</span>
+      <h2 class="section-title">{t(locale, 'b2b.title')}</h2>
+      <p class="section-subtitle">{t(locale, 'b2b.subtitle')}</p>
     </div>
 
     <div class="b2b__grid">
       <div class="b2b__col reveal">
-        <h3 class="b2b__col-title">Ce Oferim</h3>
+        <h3 class="b2b__col-title">{t(locale, 'b2b.offerTitle')}</h3>
         <ul class="b2b__list">
           <li class="b2b__item">
             <span class="b2b__item-icon">📦</span>
             <div>
-              <strong>Transport în lot</strong>
-              <p>Transportăm mai multe vehicule simultan la prețuri reduse</p>
+              <strong>{t(locale, 'b2b.feat1.title')}</strong>
+              <p>{t(locale, 'b2b.feat1.desc')}</p>
             </div>
           </li>
           <li class="b2b__item">
             <span class="b2b__item-icon">💰</span>
             <div>
-              <strong>Prețuri contractuale</strong>
-              <p>Tarife speciale negociate pentru parteneriate pe termen lung</p>
+              <strong>{t(locale, 'b2b.feat2.title')}</strong>
+              <p>{t(locale, 'b2b.feat2.desc')}</p>
             </div>
           </li>
           <li class="b2b__item">
             <span class="b2b__item-icon">📄</span>
             <div>
-              <strong>Facturare lunară</strong>
-              <p>Plată convenabilă cu factură fiscală la sfârșitul lunii</p>
+              <strong>{t(locale, 'b2b.feat3.title')}</strong>
+              <p>{t(locale, 'b2b.feat3.desc')}</p>
             </div>
           </li>
           <li class="b2b__item">
             <span class="b2b__item-icon">👤</span>
             <div>
-              <strong>Manager dedicat</strong>
-              <p>Persoană de contact dedicată pentru coordonare rapidă</p>
+              <strong>{t(locale, 'b2b.feat4.title')}</strong>
+              <p>{t(locale, 'b2b.feat4.desc')}</p>
             </div>
           </li>
         </ul>
       </div>
 
       <div class="b2b__col reveal">
-        <h3 class="b2b__col-title">Documente Necesare</h3>
+        <h3 class="b2b__col-title">{t(locale, 'b2b.docsTitle')}</h3>
         <ul class="b2b__docs">
-          <li>📋 Certificat de înmatriculare (original sau copie)</li>
-          <li>🪪 Act de identitate al proprietarului</li>
-          <li>📝 Procură (dacă nu e proprietarul)</li>
-          <li>🛡️ Poliță de asigurare (opțional — oferim noi)</li>
-          <li>📄 Contract de vânzare-cumpărare (pt. mașini noi)</li>
+          <li>{t(locale, 'b2b.doc1')}</li>
+          <li>{t(locale, 'b2b.doc2')}</li>
+          <li>{t(locale, 'b2b.doc3')}</li>
+          <li>{t(locale, 'b2b.doc5')}</li>
         </ul>
         <div class="b2b__note">
-          <strong>Notă:</strong> Pentru transport internațional pot fi necesare documente suplimentare. Contactați-ne pentru detalii.
+          <strong>{t(locale, 'b2b.noteLabel')}</strong> {t(locale, 'b2b.note')}
         </div>
       </div>
     </div>

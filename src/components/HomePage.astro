@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import Services from './Services.astro';
+import HowItWorks from './HowItWorks.astro';
+import TrustBar from './TrustBar.astro';
+import Routes from './Routes.astro';
+import PortServices from './PortServices.astro';
+import B2B from './B2B.astro';
+import Testimonials from './Testimonials.astro';
+import Gallery from './Gallery.astro';
+import FAQ from './FAQ.astro';
+import FinalCTA from './FinalCTA.astro';
+import FloatingCTA from './FloatingCTA.astro';
+import Footer from './Footer.astro';
+import MobileBottomBar from './MobileBottomBar.astro';
+import type { Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<Base locale={locale}>
+  <Nav locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <Services locale={locale} />
+    <B2B locale={locale} />
+    <Routes locale={locale} />
+    <PortServices locale={locale} />
+    <HowItWorks locale={locale} />
+    <TrustBar locale={locale} />
+    <Testimonials locale={locale} />
+    <Gallery locale={locale} />
+    <FAQ locale={locale} />
+    <FinalCTA locale={locale} />
+  </main>
+  <Footer locale={locale} />
+  <FloatingCTA locale={locale} />
+  <MobileBottomBar locale={locale} />
+</Base>

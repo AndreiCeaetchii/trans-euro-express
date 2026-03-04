@@ -1,13 +1,20 @@
 ---
+import { t, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ro' } = Astro.props;
 ---
 <section class="routes" id="rute">
   <div class="routes__glow"></div>
   <div class="routes__glow routes__glow--2"></div>
   <div class="container">
     <div class="routes__header reveal">
-      <span class="section-badge">Rute Principale</span>
-      <h2 class="section-title section-title--light">Rutele Noastre</h2>
-      <p class="section-subtitle section-subtitle--light">Acoperim Moldova, România și Odessa cu transport regulat și sigur</p>
+      <span class="section-badge">{t(locale, 'routes.badge')}</span>
+      <h2 class="section-title section-title--light">{t(locale, 'routes.title')}</h2>
+      <p class="section-subtitle section-subtitle--light">{t(locale, 'routes.subtitle')}</p>
     </div>
 
     <div class="routes__main reveal">
@@ -25,19 +32,19 @@
               </span>
               <span class="routes__hero-country">
                 <span class="routes__country-flag routes__country-flag--ro"></span>
-                România
+                {t(locale, 'hero.routeRomania')}
               </span>
             </div>
-            <h3 class="routes__hero-title">Ruta Principală</h3>
-            <p class="routes__hero-sub">Curse regulate săptămânale cu transport pe platformă profesională</p>
+            <h3 class="routes__hero-title">{t(locale, 'routes.mainTitle')}</h3>
+            <p class="routes__hero-sub">{t(locale, 'routes.mainDesc')}</p>
           </div>
           <div class="routes__hero-right">
             <ul class="routes__hero-features">
-              <li><span class="routes__check">✓</span> Transport platformă dedicată</li>
-              <li><span class="routes__check">✓</span> Curse regulate săptămânale</li>
-              <li><span class="routes__check">✓</span> Asistență la vamă inclusă</li>
-              <li><span class="routes__check">✓</span> Asigurare completă pe tot traseul</li>
-              <li><span class="routes__check">✓</span> Ridicare și livrare door-to-door</li>
+              <li><span class="routes__check">✓</span> {t(locale, 'routes.feat1')}</li>
+              <li><span class="routes__check">✓</span> {t(locale, 'routes.feat2')}</li>
+              <li><span class="routes__check">✓</span> {t(locale, 'routes.feat3')}</li>
+              <li><span class="routes__check">✓</span> {t(locale, 'routes.feat4')}</li>
+              <li><span class="routes__check">✓</span> {t(locale, 'routes.feat5')}</li>
             </ul>
           </div>
         </div>
@@ -52,11 +59,10 @@
           <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16M12 1l4 5-4 5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
           <span class="routes__country-flag routes__country-flag--ro"></span>
         </div>
-        <h3 class="routes__card-title">Chișinău → București</h3>
+        <h3 class="routes__card-title">{t(locale, 'routes.card1.title')}</h3>
         <ul class="routes__features">
-          <li><span class="routes__check">✓</span> Durată: 8-12 ore</li>
-          <li><span class="routes__check">✓</span> Vamă + documente incluse</li>
-          <li><span class="routes__check">✓</span> Livrare la adresă</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card1.feat1')}</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card1.feat2')}</li>
         </ul>
       </div>
       <div class="routes__card reveal">
@@ -66,11 +72,11 @@
           <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16M12 1l4 5-4 5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
           <span class="routes__country-flag routes__country-flag--ua"></span>
         </div>
-        <h3 class="routes__card-title">Moldova → Odessa</h3>
+        <h3 class="routes__card-title">{t(locale, 'routes.card2.title')}</h3>
         <ul class="routes__features">
-          <li><span class="routes__check">✓</span> Transport port Odessa</li>
-          <li><span class="routes__check">✓</span> Asistență vamală UA</li>
-          <li><span class="routes__check">✓</span> Vehicule din import</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card2.feat1')}</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card2.feat2')}</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card2.feat3')}</li>
         </ul>
       </div>
       <div class="routes__card reveal">
@@ -80,11 +86,11 @@
           <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16M12 1l4 5-4 5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
           <span class="routes__country-flag routes__country-flag--md"></span>
         </div>
-        <h3 class="routes__card-title">România → Moldova</h3>
+        <h3 class="routes__card-title">{t(locale, 'routes.card3.title')}</h3>
         <ul class="routes__features">
-          <li><span class="routes__check">✓</span> Din orice oraș din RO</li>
-          <li><span class="routes__check">✓</span> Mașini noi și second-hand</li>
-          <li><span class="routes__check">✓</span> Livrare în toată MD</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card3.feat1')}</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card3.feat2')}</li>
+          <li><span class="routes__check">✓</span> {t(locale, 'routes.card3.feat3')}</li>
         </ul>
       </div>
     </div>
@@ -126,7 +132,6 @@
     margin: 0 auto;
   }
 
-  /* Country flag indicators */
   .routes__country-flag {
     display: inline-block;
     width: 24px;
@@ -149,7 +154,6 @@
     background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);
   }
 
-  /* Main hero card */
   .routes__main {
     margin-bottom: 32px;
   }
@@ -241,7 +245,6 @@
     flex-shrink: 0;
   }
 
-  /* Secondary cards */
   .routes__secondary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

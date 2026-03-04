@@ -7,4 +7,5 @@ review_text: "Serviciu excelent! Am transportat mașina din Chișinău la Bucure
 stars: 5
 type: "Persoană fizică"
 order: 1
+locale: "ro"
 ---

@@ -1,20 +1,27 @@
 ---
+import { t, type Locale } from '../i18n/utils';
+
 interface Props {
+  locale?: Locale;
   title?: string;
   description?: string;
   ogImage?: string;
 }
 
+const { locale = 'ro' } = Astro.props;
 const {
-  title = 'Trans Euro Express — Transport Auto Moldova, România, Odessa',
-  description = 'Servicii profesionale de transport auto și tractare pe platformă între Moldova, România și Odessa. Asigurare completă, prețuri transparente, livrare rapidă.',
+  title = t(locale, 'meta.title'),
+  description = t(locale, 'meta.description'),
   ogImage = 'https://andreiceaetchii.github.io/trans-euro-express/images/og-image.jpg',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const base = import.meta.env.BASE_URL;
+
+const ogLocaleMap: Record<string, string> = { ro: 'ro_RO', en: 'en_US', ru: 'ru_RU' };
 ---
 <!DOCTYPE html>
-<html lang="ro">
+<html lang={locale}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,7 +34,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta name="author" content="Trans Euro Express SRL" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonicalURL.href} />
-  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+  <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+
+  <!-- Hreflang alternates -->
+  <link rel="alternate" hreflang="ro" href={`${Astro.site}trans-euro-express/`} />
+  <link rel="alternate" hreflang="en" href={`${Astro.site}trans-euro-express/en/`} />
+  <link rel="alternate" hreflang="ru" href={`${Astro.site}trans-euro-express/ru/`} />
+  <link rel="alternate" hreflang="x-default" href={`${Astro.site}trans-euro-express/`} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -35,7 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
-  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:locale" content={ogLocaleMap[locale] ?? 'ro_RO'} />
   <meta property="og:site_name" content="Trans Euro Express" />
 
   <!-- Google Fonts -->

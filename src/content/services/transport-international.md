@@ -4,4 +4,5 @@ description: "Transport auto între Moldova, România și Odessa cu curse regula
 icon: "🌍"
 color: "#1D4ED8"
 order: 2
+locale: "ro"
 ---

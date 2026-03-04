@@ -15,8 +15,10 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       {services.map((service, i) => (
         <div class="services__card reveal" style={`transition-delay: ${i * 0.08}s`}>
           <div class="services__card-accent" style={`background: ${service.data.color}`}></div>
-          <span class="services__icon">{service.data.icon}</span>
-          <h3 class="services__card-title">{service.data.title}</h3>
+          <div class="services__card-header">
+            <span class="services__icon">{service.data.icon}</span>
+            <h3 class="services__card-title">{service.data.title}</h3>
+          </div>
           <p class="services__card-desc">{service.data.description}</p>
         </div>
       ))}
@@ -68,10 +70,17 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
     height: 4px;
   }
 
+  .services__card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
   .services__icon {
-    font-size: 2.2rem;
-    display: block;
-    margin-bottom: 16px;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
   }
 
   .services__card-title {
@@ -79,7 +88,6 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
     font-size: 1.15rem;
     font-weight: 800;
     color: var(--dark);
-    margin-bottom: 8px;
   }
 
   .services__card-desc {

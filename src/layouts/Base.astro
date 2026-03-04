@@ -98,11 +98,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           spaceBetween: 24,
           loop: true,
           autoplay: { delay: 4500, disableOnInteraction: false },
-          pagination: { el: '.swiper-pagination', clickable: true },
+          pagination: { el: '.testimonials__slider .swiper-pagination', clickable: true },
           navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
           breakpoints: {
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
+          },
+        });
+      }
+
+      if (typeof Swiper !== 'undefined' && document.querySelector('.gallery__slider')) {
+        new Swiper('.gallery__slider', {
+          slidesPerView: 1,
+          spaceBetween: 12,
+          centeredSlides: true,
+          grabCursor: true,
+          pagination: { el: '.gallery__dots', clickable: true, dynamicBullets: true, dynamicMainBullets: 1 },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              centeredSlides: false,
+              spaceBetween: 16,
+              grid: { rows: 2, fill: 'row' },
+            },
+            1024: {
+              slidesPerView: 4,
+              centeredSlides: false,
+              spaceBetween: 16,
+              grid: { rows: 2, fill: 'row' },
+            },
           },
         });
       }
@@ -287,6 +311,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   .btn--whatsapp:hover {
     background: #20bd5a;
+  }
+
+  .btn--telegram {
+    background: #26A5E4;
+    color: var(--white);
+  }
+
+  .btn--telegram:hover {
+    background: #1e8fc7;
+  }
+
+  .btn--viber {
+    background: #7360F2;
+    color: var(--white);
+  }
+
+  .btn--viber:hover {
+    background: #5f4ed4;
   }
 
   .btn--outline {

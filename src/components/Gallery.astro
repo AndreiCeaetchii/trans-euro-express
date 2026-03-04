@@ -1,11 +1,13 @@
 ---
 const images = [
-  { src: '/images/gallery-1.jpg', alt: 'Transport auto pe platformă', span: false },
-  { src: '/images/gallery-2.jpg', alt: 'Încărcare vehicul pe trailer', span: true },
-  { src: '/images/gallery-3.jpg', alt: 'Livrare mașină la destinație', span: false },
-  { src: '/images/gallery-4.jpg', alt: 'Transport internațional Moldova-România', span: false },
-  { src: '/images/gallery-5.jpg', alt: 'Echipament profesional de tractare', span: true },
-  { src: '/images/gallery-6.jpg', alt: 'Echipa Trans Euro Express', span: false },
+  { src: '/images/photo1.jpg', alt: 'Transport auto pe platformă' },
+  { src: '/images/photo2.jpg', alt: 'Încărcare vehicul pe trailer' },
+  { src: '/images/photo3.jpg', alt: 'Livrare mașină la destinație' },
+  { src: '/images/photo4.jpg', alt: 'Transport internațional Moldova-România' },
+  { src: '/images/photo5.jpg', alt: 'Echipament profesional de tractare' },
+  { src: '/images/photo6.jpg', alt: 'Echipa Trans Euro Express' },
+  { src: '/images/photo7.jpg', alt: 'Platformă de transport auto' },
+  { src: '/images/photo8.jpg', alt: 'Transport auto sigur' },
 ];
 ---
 <section class="gallery" id="galerie">
@@ -16,16 +18,18 @@ const images = [
       <p class="section-subtitle">Imagini din activitatea noastră zilnică</p>
     </div>
 
-    <div class="gallery__grid">
-      {images.map((img, i) => (
-        <div class={`gallery__item ${img.span ? 'gallery__item--wide' : ''} reveal`} style={`transition-delay: ${i * 0.08}s`}>
-          <div class="gallery__placeholder">
-            <span class="gallery__placeholder-icon">📷</span>
-            <span class="gallery__placeholder-text">{img.alt}</span>
+    <div class="swiper gallery__slider reveal">
+      <div class="swiper-wrapper">
+        {images.map((img) => (
+          <div class="swiper-slide">
+            <div class="gallery__item">
+              <img src={img.src} alt={img.alt} loading="lazy" class="gallery__img" />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
+    <div class="gallery__dots"></div>
   </div>
 </section>
 
@@ -43,54 +47,55 @@ const images = [
   .gallery__header .section-title { color: var(--white); }
   .gallery__header .section-subtitle { color: rgba(255,255,255,0.6); margin: 0 auto; }
 
-  .gallery__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
   .gallery__item {
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/10;
   }
 
-  .gallery__item--wide {
-    grid-column: span 2;
-  }
-
-  .gallery__placeholder {
+  .gallery__img {
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
   }
 
-  .gallery__placeholder-icon {
-    font-size: 2rem;
-    opacity: 0.4;
+  .gallery__item:hover .gallery__img {
+    transform: scale(1.05);
   }
 
-  .gallery__placeholder-text {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.3);
+  /* Pagination below photos */
+  .gallery__dots {
+    padding-top: 28px;
     text-align: center;
-    padding: 0 16px;
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .gallery__dots :global(.swiper-pagination-bullet) {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    margin: 0 5px !important;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .gallery__dots :global(.swiper-pagination-bullet-active) {
+    background: var(--orange);
+    transform: scale(1.25);
+  }
+
+  .gallery__dots :global(.swiper-pagination-bullet-active-main) {
+    background: var(--orange);
   }
 
   @media (max-width: 768px) {
-    .gallery__grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery__item--wide { grid-column: span 1; }
     .gallery { padding: 64px 0; }
-  }
-
-  @media (max-width: 480px) {
-    .gallery__grid { grid-template-columns: 1fr; }
   }
 </style>

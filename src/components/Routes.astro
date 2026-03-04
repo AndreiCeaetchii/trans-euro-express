@@ -2,6 +2,7 @@
 ---
 <section class="routes" id="rute">
   <div class="routes__glow"></div>
+  <div class="routes__glow routes__glow--2"></div>
   <div class="container">
     <div class="routes__header reveal">
       <span class="section-badge">Rute Principale</span>
@@ -10,48 +11,80 @@
     </div>
 
     <div class="routes__main reveal">
-      <div class="routes__card routes__card--main">
-        <div class="routes__card-header">
-          <span class="routes__flags">🇲🇩 ↔ 🇷🇴</span>
-          <h3 class="routes__card-title">Moldova — România</h3>
-          <p class="routes__card-sub">Ruta principală, curse regulate</p>
+      <div class="routes__hero-card">
+        <div class="routes__hero-accent"></div>
+        <div class="routes__hero-inner">
+          <div class="routes__hero-left">
+            <div class="routes__hero-route">
+              <span class="routes__hero-country">
+                <span class="routes__country-flag routes__country-flag--md"></span>
+                Moldova
+              </span>
+              <span class="routes__hero-arrow">
+                <svg width="48" height="24" viewBox="0 0 48 24" fill="none"><path d="M0 12h44M38 6l6 6-6 6" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 12H0M6 6L0 12l6 6" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/></svg>
+              </span>
+              <span class="routes__hero-country">
+                <span class="routes__country-flag routes__country-flag--ro"></span>
+                România
+              </span>
+            </div>
+            <h3 class="routes__hero-title">Ruta Principală</h3>
+            <p class="routes__hero-sub">Curse regulate săptămânale cu transport pe platformă profesională</p>
+          </div>
+          <div class="routes__hero-right">
+            <ul class="routes__hero-features">
+              <li><span class="routes__check">✓</span> Transport platformă dedicată</li>
+              <li><span class="routes__check">✓</span> Curse regulate săptămânale</li>
+              <li><span class="routes__check">✓</span> Asistență la vamă inclusă</li>
+              <li><span class="routes__check">✓</span> Asigurare completă pe tot traseul</li>
+              <li><span class="routes__check">✓</span> Ridicare și livrare door-to-door</li>
+            </ul>
+          </div>
         </div>
-        <ul class="routes__features">
-          <li>✓ Transport platformă dedicată</li>
-          <li>✓ Curse regulate săptămânale</li>
-          <li>✓ Asistență la vamă inclusă</li>
-          <li>✓ Asigurare completă pe tot traseul</li>
-          <li>✓ Ridicare și livrare door-to-door</li>
-        </ul>
       </div>
     </div>
 
     <div class="routes__secondary">
       <div class="routes__card reveal">
-        <span class="routes__flags">🇲🇩 → 🇷🇴</span>
+        <div class="routes__card-accent routes__card-accent--md"></div>
+        <div class="routes__card-route">
+          <span class="routes__country-flag routes__country-flag--md"></span>
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16M12 1l4 5-4 5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="routes__country-flag routes__country-flag--ro"></span>
+        </div>
         <h3 class="routes__card-title">Chișinău → București</h3>
         <ul class="routes__features">
-          <li>✓ Durată: 8-12 ore</li>
-          <li>✓ Vamă + documente incluse</li>
-          <li>✓ Livrare la adresă</li>
+          <li><span class="routes__check">✓</span> Durată: 8-12 ore</li>
+          <li><span class="routes__check">✓</span> Vamă + documente incluse</li>
+          <li><span class="routes__check">✓</span> Livrare la adresă</li>
         </ul>
       </div>
       <div class="routes__card reveal">
-        <span class="routes__flags">🇲🇩 → 🇺🇦</span>
+        <div class="routes__card-accent routes__card-accent--ua"></div>
+        <div class="routes__card-route">
+          <span class="routes__country-flag routes__country-flag--md"></span>
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16M12 1l4 5-4 5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="routes__country-flag routes__country-flag--ua"></span>
+        </div>
         <h3 class="routes__card-title">Moldova → Odessa</h3>
         <ul class="routes__features">
-          <li>✓ Transport port Odessa</li>
-          <li>✓ Asistență vamală UA</li>
-          <li>✓ Vehicule din import</li>
+          <li><span class="routes__check">✓</span> Transport port Odessa</li>
+          <li><span class="routes__check">✓</span> Asistență vamală UA</li>
+          <li><span class="routes__check">✓</span> Vehicule din import</li>
         </ul>
       </div>
       <div class="routes__card reveal">
-        <span class="routes__flags">🇷🇴 → 🇲🇩</span>
+        <div class="routes__card-accent routes__card-accent--ro"></div>
+        <div class="routes__card-route">
+          <span class="routes__country-flag routes__country-flag--ro"></span>
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16M12 1l4 5-4 5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="routes__country-flag routes__country-flag--md"></span>
+        </div>
         <h3 class="routes__card-title">România → Moldova</h3>
         <ul class="routes__features">
-          <li>✓ Din orice oraș din RO</li>
-          <li>✓ Mașini noi și second-hand</li>
-          <li>✓ Livrare în toată MD</li>
+          <li><span class="routes__check">✓</span> Din orice oraș din RO</li>
+          <li><span class="routes__check">✓</span> Mașini noi și second-hand</li>
+          <li><span class="routes__check">✓</span> Livrare în toată MD</li>
         </ul>
       </div>
     </div>
@@ -72,8 +105,16 @@
     left: -100px;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(240, 78, 26, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(240, 78, 26, 0.08) 0%, transparent 70%);
     pointer-events: none;
+  }
+
+  .routes__glow--2 {
+    top: auto;
+    left: auto;
+    bottom: -150px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(240, 78, 26, 0.06) 0%, transparent 70%);
   }
 
   .routes__header {
@@ -85,54 +126,169 @@
     margin: 0 auto;
   }
 
+  /* Country flag indicators */
+  .routes__country-flag {
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .routes__country-flag--md {
+    background: linear-gradient(to right, #003DA5 33%, #FCD116 33% 66%, #CE1126 66%);
+  }
+
+  .routes__country-flag--ro {
+    background: linear-gradient(to right, #002B7F 33%, #FCD116 33% 66%, #CE1126 66%);
+  }
+
+  .routes__country-flag--ua {
+    background: linear-gradient(to bottom, #0057B7 50%, #FFD700 50%);
+  }
+
+  /* Main hero card */
   .routes__main {
     margin-bottom: 32px;
   }
 
+  .routes__hero-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(240, 78, 26, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(240, 78, 26, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .routes__hero-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--orange), var(--orange-light), var(--orange));
+  }
+
+  .routes__hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 48px 40px;
+    align-items: center;
+  }
+
+  .routes__hero-route {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .routes__hero-country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .routes__hero-country .routes__country-flag {
+    width: 28px;
+    height: 19px;
+    border-radius: 4px;
+  }
+
+  .routes__hero-arrow {
+    display: flex;
+    align-items: center;
+  }
+
+  .routes__hero-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .routes__hero-sub {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .routes__hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .routes__hero-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+  }
+
+  .routes__check {
+    color: var(--orange);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Secondary cards */
+  .routes__secondary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
   .routes__card {
+    position: relative;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    padding: 32px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    padding: 28px 24px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .routes__card:hover {
     transform: translateY(-4px);
     border-color: var(--orange);
+    box-shadow: 0 10px 35px rgba(240, 78, 26, 0.08);
   }
 
-  .routes__card--main {
-    text-align: center;
-    padding: 48px 32px;
+  .routes__card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
   }
 
-  .routes__card--main .routes__features {
-    max-width: 400px;
-    margin: 0 auto;
-  }
+  .routes__card-accent--md { background: linear-gradient(to right, #003DA5, #FCD116, #CE1126); }
+  .routes__card-accent--ro { background: linear-gradient(to right, #002B7F, #FCD116, #CE1126); }
+  .routes__card-accent--ua { background: linear-gradient(to right, #0057B7, #FFD700); }
 
-  .routes__card-header {
-    margin-bottom: 24px;
-  }
-
-  .routes__flags {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 12px;
+  .routes__card-route {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
   }
 
   .routes__card-title {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .routes__card-sub {
-    color: var(--gray-text);
-    font-size: 0.9rem;
+    margin-bottom: 16px;
   }
 
   .routes__features {
@@ -142,34 +298,25 @@
   }
 
   .routes__features li {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
   }
 
-  .routes__secondary {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .routes__secondary .routes__flags {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-  }
-
-  .routes__secondary .routes__card-title {
-    font-size: 1.15rem;
-    margin-bottom: 16px;
+  @media (max-width: 900px) {
+    .routes__hero-inner { grid-template-columns: 1fr; gap: 24px; }
+    .routes__hero-inner { padding: 32px 24px; }
   }
 
   @media (max-width: 768px) {
     .routes__secondary { grid-template-columns: 1fr; }
     .routes { padding: 64px 0; }
-    .routes__card { padding: 24px 20px; }
-    .routes__card--main { padding: 32px 20px; }
   }
 
   @media (max-width: 480px) {
-    .routes__card-title { font-size: 1.1rem; }
+    .routes__hero-route { flex-wrap: wrap; gap: 10px; }
+    .routes__hero-title { font-size: 1.4rem; }
   }
 </style>

@@ -1,0 +1,364 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Trans Euro Express — Transport Auto Moldova, România, Odessa',
+  description = 'Servicii profesionale de transport auto și tractare pe platformă între Moldova, România și Odessa. Asigurare completă, prețuri transparente, livrare rapidă.',
+  ogImage = 'https://trans-euro-express.md/images/og-image.jpg',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- Primary SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content="transport auto, tractare platformă, Moldova România, transport mașini, platformă auto, Chișinău, București, Odessa, tractări auto" />
+  <meta name="author" content="Trans Euro Express SRL" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Trans Euro Express" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "Trans Euro Express SRL",
+        "description": description,
+        "url": "https://trans-euro-express.md",
+        "telephone": "+37368860200",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "MD"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Moldova" },
+          { "@type": "Country", "name": "Romania" },
+          { "@type": "City", "name": "Odessa" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "127"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Acasă",
+            "item": "https://trans-euro-express.md/"
+          }
+        ]
+      }
+    ]
+  })} />
+</head>
+<body>
+  <slot />
+
+  <!-- Swiper JS -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Swiper !== 'undefined' && document.querySelector('.testimonials__slider')) {
+        new Swiper('.testimonials__slider', {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          autoplay: { delay: 4500, disableOnInteraction: false },
+          pagination: { el: '.testimonials__slider .swiper-pagination', clickable: true },
+          navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+          breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          },
+        });
+      }
+
+      if (typeof Swiper !== 'undefined' && document.querySelector('.gallery__slider')) {
+        new Swiper('.gallery__slider', {
+          slidesPerView: 1,
+          spaceBetween: 12,
+          centeredSlides: true,
+          grabCursor: true,
+          pagination: { el: '.gallery__dots', clickable: true, dynamicBullets: true, dynamicMainBullets: 1 },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              centeredSlides: false,
+              spaceBetween: 16,
+              grid: { rows: 2, fill: 'row' },
+            },
+            1024: {
+              slidesPerView: 4,
+              centeredSlides: false,
+              spaceBetween: 16,
+              grid: { rows: 2, fill: 'row' },
+            },
+          },
+        });
+      }
+    });
+  </script>
+
+  <script>
+    // IntersectionObserver for .reveal elements
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
+
+<style is:global>
+  /* ===== CSS Custom Properties ===== */
+  :root {
+    --orange: #F04E1A;
+    --orange-light: #FF6B35;
+    --green: #25D366;
+    --dark: #111827;
+    --black: #0A0F18;
+    --white: #FFFFFF;
+    --gray-bg: #F8F9FA;
+    --gray-border: #E5E7EB;
+    --gray-text: #6B7280;
+    --blue: #1D4ED8;
+
+    --font-heading: 'Barlow Condensed', sans-serif;
+    --font-body: 'Mulish', sans-serif;
+  }
+
+  /* ===== CSS Reset ===== */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--dark);
+    background: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  /* ===== Layout ===== */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== Section Headings ===== */
+  .section-badge {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(240, 78, 26, 0.1);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.7rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .section-title--light {
+    color: var(--white);
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  .section-subtitle--light {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* ===== Reveal Animations ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== Buttons ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    padding: 14px 32px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 480px) {
+    .btn { padding: 12px 24px; }
+    .container { padding: 0 16px; }
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--orange {
+    background: var(--orange);
+    color: var(--white);
+  }
+
+  .btn--orange:hover {
+    background: var(--orange-light);
+  }
+
+  .btn--whatsapp {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  .btn--whatsapp:hover {
+    background: #20bd5a;
+  }
+
+  .btn--telegram {
+    background: #26A5E4;
+    color: var(--white);
+  }
+
+  .btn--telegram:hover {
+    background: #1e8fc7;
+  }
+
+  .btn--viber {
+    background: #7360F2;
+    color: var(--white);
+  }
+
+  .btn--viber:hover {
+    background: #5f4ed4;
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn--outline:hover {
+    border-color: var(--white);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* ===== Scrollbar ===== */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 4px;
+  }
+
+  @media (max-width: 900px) {
+    body {
+      padding-bottom: 64px;
+    }
+  }
+</style>

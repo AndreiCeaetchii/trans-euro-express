@@ -1,0 +1,15 @@
+---
+cities:
+  - Chișinău
+  - Bălți
+  - Cahul
+  - Comrat
+  - Soroca
+  - Ungheni
+  - Orhei
+  - Edineț
+  - Căușeni
+  - Ștefan Vodă
+  - Hîncești
+  - Strășeni
+---

@@ -1,0 +1,82 @@
+---
+const cities = [
+  'Chișinău', 'Bălți', 'Cahul', 'Comrat', 'Soroca', 'Ungheni',
+  'Orhei', 'Edineț', 'Căușeni', 'Ștefan Vodă', 'Hîncești', 'Strășeni',
+];
+---
+<section class="local">
+  <div class="container">
+    <div class="local__header reveal">
+      <span class="section-badge">Acoperire Națională</span>
+      <h2 class="section-title">Transport în Toată Moldova</h2>
+      <p class="section-subtitle">Ridicare și livrare din orice localitate din Republica Moldova</p>
+    </div>
+
+    <div class="local__grid">
+      {cities.map((city, i) => (
+        <div class="local__city reveal" style={`transition-delay: ${i * 0.05}s`}>
+          <span class="local__pin">📍</span>
+          <span class="local__name">{city}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .local {
+    background: var(--gray-bg);
+    padding: 96px 0;
+  }
+
+  .local__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .local__header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .local__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .local__city {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--gray-border);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .local__city:hover {
+    transform: translateY(-2px);
+    border-color: var(--orange);
+  }
+
+  .local__pin {
+    font-size: 1.2rem;
+  }
+
+  .local__name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--dark);
+  }
+
+  @media (max-width: 900px) {
+    .local__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .local__grid { grid-template-columns: repeat(2, 1fr); }
+    .local { padding: 64px 0; }
+  }
+</style>

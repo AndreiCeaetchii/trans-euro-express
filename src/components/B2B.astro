@@ -1,0 +1,164 @@
+---
+---
+<section class="b2b" id="b2b">
+  <div class="container">
+    <div class="b2b__header reveal">
+      <span class="section-badge">Pentru Companii</span>
+      <h2 class="section-title">Servicii B2B</h2>
+      <p class="section-subtitle">Soluții profesionale de transport auto pentru dealeri și companii</p>
+    </div>
+
+    <div class="b2b__grid">
+      <div class="b2b__col reveal">
+        <h3 class="b2b__col-title">Ce Oferim</h3>
+        <ul class="b2b__list">
+          <li class="b2b__item">
+            <span class="b2b__item-icon">📦</span>
+            <div>
+              <strong>Transport în lot</strong>
+              <p>Transportăm mai multe vehicule simultan la prețuri reduse</p>
+            </div>
+          </li>
+          <li class="b2b__item">
+            <span class="b2b__item-icon">💰</span>
+            <div>
+              <strong>Prețuri contractuale</strong>
+              <p>Tarife speciale negociate pentru parteneriate pe termen lung</p>
+            </div>
+          </li>
+          <li class="b2b__item">
+            <span class="b2b__item-icon">📄</span>
+            <div>
+              <strong>Facturare lunară</strong>
+              <p>Plată convenabilă cu factură fiscală la sfârșitul lunii</p>
+            </div>
+          </li>
+          <li class="b2b__item">
+            <span class="b2b__item-icon">👤</span>
+            <div>
+              <strong>Manager dedicat</strong>
+              <p>Persoană de contact dedicată pentru coordonare rapidă</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="b2b__col reveal">
+        <h3 class="b2b__col-title">Documente Necesare</h3>
+        <ul class="b2b__docs">
+          <li>📋 Certificat de înmatriculare (original sau copie)</li>
+          <li>🪪 Act de identitate al proprietarului</li>
+          <li>📝 Procură (dacă nu e proprietarul)</li>
+          <li>🛡️ Poliță de asigurare (opțional — oferim noi)</li>
+          <li>📄 Contract de vânzare-cumpărare (pt. mașini noi)</li>
+        </ul>
+        <div class="b2b__note">
+          <strong>Notă:</strong> Pentru transport internațional pot fi necesare documente suplimentare. Contactați-ne pentru detalii.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .b2b {
+    background: var(--white);
+    padding: 96px 0;
+  }
+
+  .b2b__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .b2b__header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .b2b__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .b2b__col-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--orange);
+  }
+
+  .b2b__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .b2b__item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .b2b__item-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .b2b__item strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .b2b__item p {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    line-height: 1.5;
+  }
+
+  .b2b__docs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .b2b__docs li {
+    font-size: 0.95rem;
+    color: var(--dark);
+    padding: 12px 16px;
+    background: var(--gray-bg);
+    border-radius: 8px;
+  }
+
+  .b2b__note {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(240, 78, 26, 0.06);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: var(--gray-text);
+  }
+
+  .b2b__note strong {
+    color: var(--dark);
+  }
+
+  @media (max-width: 768px) {
+    .b2b__grid { grid-template-columns: 1fr; gap: 32px; }
+    .b2b { padding: 64px 0; }
+  }
+
+  @media (max-width: 480px) {
+    .b2b__docs li { padding: 10px 12px; font-size: 0.85rem; }
+    .b2b__item { gap: 12px; }
+  }
+</style>

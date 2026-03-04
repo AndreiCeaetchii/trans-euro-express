@@ -1,0 +1,101 @@
+---
+const images = [
+  { src: '/images/photo1.jpg', alt: 'Transport auto pe platformă' },
+  { src: '/images/photo2.jpg', alt: 'Încărcare vehicul pe trailer' },
+  { src: '/images/photo3.jpg', alt: 'Livrare mașină la destinație' },
+  { src: '/images/photo4.jpg', alt: 'Transport internațional Moldova-România' },
+  { src: '/images/photo5.jpg', alt: 'Echipament profesional de tractare' },
+  { src: '/images/photo6.jpg', alt: 'Echipa Trans Euro Express' },
+  { src: '/images/photo7.jpg', alt: 'Platformă de transport auto' },
+  { src: '/images/photo8.jpg', alt: 'Transport auto sigur' },
+];
+---
+<section class="gallery" id="galerie">
+  <div class="container">
+    <div class="gallery__header reveal">
+      <span class="section-badge">Galerie</span>
+      <h2 class="section-title">Galerie Foto</h2>
+      <p class="section-subtitle">Imagini din activitatea noastră zilnică</p>
+    </div>
+
+    <div class="swiper gallery__slider reveal">
+      <div class="swiper-wrapper">
+        {images.map((img) => (
+          <div class="swiper-slide">
+            <div class="gallery__item">
+              <img src={img.src} alt={img.alt} loading="lazy" class="gallery__img" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="gallery__dots"></div>
+  </div>
+</section>
+
+<style>
+  .gallery {
+    background: var(--dark);
+    padding: 96px 0;
+  }
+
+  .gallery__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .gallery__header .section-title { color: var(--white); }
+  .gallery__header .section-subtitle { color: rgba(255,255,255,0.6); margin: 0 auto; }
+
+  .gallery__item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+  }
+
+  .gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery__item:hover .gallery__img {
+    transform: scale(1.05);
+  }
+
+  /* Pagination below photos */
+  .gallery__dots {
+    padding-top: 28px;
+    text-align: center;
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .gallery__dots :global(.swiper-pagination-bullet) {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    margin: 0 5px !important;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .gallery__dots :global(.swiper-pagination-bullet-active) {
+    background: var(--orange);
+    transform: scale(1.25);
+  }
+
+  .gallery__dots :global(.swiper-pagination-bullet-active-main) {
+    background: var(--orange);
+  }
+
+  @media (max-width: 768px) {
+    .gallery { padding: 64px 0; }
+  }
+</style>

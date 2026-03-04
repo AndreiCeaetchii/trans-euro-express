@@ -1,0 +1,165 @@
+---
+import { getCollection } from 'astro:content';
+
+const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
+---
+<section class="testimonials" id="testimoniale">
+  <div class="container">
+    <div class="testimonials__header reveal">
+      <span class="section-badge">Testimoniale</span>
+      <h2 class="section-title">Ce Spun Clienții</h2>
+      <p class="section-subtitle">Recenzii reale de la clienții noștri mulțumiți</p>
+    </div>
+
+    <div class="swiper testimonials__slider reveal">
+      <div class="swiper-wrapper">
+        {testimonials.map(t => (
+          <div class="swiper-slide">
+            <div class="testimonials__card">
+              <div class="testimonials__stars">
+                {Array.from({ length: t.data.stars }).map(() => (
+                  <span class="testimonials__star">★</span>
+                ))}
+              </div>
+              <blockquote class="testimonials__quote">"{t.data.review_text}"</blockquote>
+              <div class="testimonials__author">
+                <div class="testimonials__avatar" style={`background: ${t.data.avatar_color}`}>
+                  {t.data.avatar_initials}
+                </div>
+                <div>
+                  <div class="testimonials__name">{t.data.name}</div>
+                  <div class="testimonials__route">{t.data.route_description}</div>
+                </div>
+              </div>
+              <span class="testimonials__type">{t.data.type}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background: var(--gray-bg);
+    padding: 96px 0;
+  }
+
+  .testimonials__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .testimonials__header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .testimonials__slider {
+    padding-bottom: 56px;
+    overflow: hidden;
+  }
+
+  .testimonials__card {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: 16px;
+    padding: 32px 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonials__stars {
+    margin-bottom: 16px;
+  }
+
+  .testimonials__star {
+    color: #F59E0B;
+    font-size: 1.2rem;
+  }
+
+  .testimonials__quote {
+    font-size: 1rem;
+    color: var(--dark);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testimonials__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .testimonials__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .testimonials__name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--dark);
+  }
+
+  .testimonials__route {
+    font-size: 0.8rem;
+    color: var(--gray-text);
+  }
+
+  .testimonials__type {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--orange);
+    background: rgba(240, 78, 26, 0.08);
+    padding: 4px 10px;
+    border-radius: 50px;
+    align-self: flex-start;
+  }
+
+  /* Swiper overrides */
+  .testimonials__slider :global(.swiper-pagination-bullet) {
+    background: var(--orange);
+    opacity: 0.3;
+  }
+
+  .testimonials__slider :global(.swiper-pagination-bullet-active) {
+    opacity: 1;
+  }
+
+  .testimonials__slider :global(.swiper-button-prev),
+  .testimonials__slider :global(.swiper-button-next) {
+    color: var(--orange);
+    width: 40px;
+    height: 40px;
+    top: auto;
+    bottom: 0;
+  }
+
+  .testimonials__slider :global(.swiper-button-prev)::after,
+  .testimonials__slider :global(.swiper-button-next)::after {
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials { padding: 64px 0; }
+  }
+</style>
